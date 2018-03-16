@@ -1,2 +1,15 @@
-https://en.wikipedia.org/wiki/Stroop_effect
+Stroop Effect Wikipedia : https://en.wikipedia.org/wiki/Stroop_effect
 
+Exporting as PDF from Jupyter notebook (nbconvert documentation): https://nbconvert.readthedocs.io/en/latest/install.html#installing-tex
+
+Left-aligned equations in LaTeX in Jupyter notebook (StackExchange): https://tex.stackexchange.com/questions/207397/left-aligned-equations
+
+Writing equation with / in LaTeX (StackExchange) : https://tex.stackexchange.com/questions/73822/what-is-the-difference-between-over-and-frac
+
+Calculating z-value (GraphPad) : https://www.graphpad.com/quickcalcs/statRatio1/
+
+Draw average line in matplotlib (StackExchange) : https://stackoverflow.com/questions/12043672/how-to-take-draw-an-average-line-for-a-scatter-a-plot-in-matplotlib/23014607
+
+Changing tick frequency on X and Y axis in matplotlib (StackExchange) : https://stackoverflow.com/questions/12608788/changing-the-tick-frequency-on-x-or-y-axis-in-matplotlib
+
+Plot bar graphs with same X coordinates side by side in matplotlib (StackExchangee) : https://stackoverflow.com/questions/10369681/how-to-plot-bar-graphs-with-same-x-coordinates-side-by-side
