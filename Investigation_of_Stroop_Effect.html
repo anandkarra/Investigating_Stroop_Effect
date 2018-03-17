@@ -15053,22 +15053,40 @@ Before we define our hypothesis, we first need to define our variables. Specific
 <p><h3 style="text-align:left;">Mathematical notation</h3>
 Let, the <strong>average</strong> and <strong>standard</strong> deviation of time taken to complete the task in the <strong>congruent</strong> words condition be <b>&mu;<sub>cong</sub></b> and <b>&sigma;<sub>cong</sub></b> respectively.
 <br>
-and, the <strong>average</strong> and <strong>standard deviation</strong> of time taken to complete the task in the <strong>incongruent</strong> words condition be <b>&mu;<sub>incong</sub></b> and <b>&sigma;<sub>incong</sub></b> respectively.
+<br>
+And, the <strong>average</strong> and <strong>standard deviation</strong> of time taken to complete the task in the <strong>incongruent</strong> words condition be <b>&mu;<sub>incong</sub></b> and <b>&sigma;<sub>incong</sub></b> respectively.
+<br>
+<br>
+And, the <strong>average</strong> and <strong>standard deviation</strong> of <strong>time differences</strong> to complete the task in the <strong>congruent</strong> and <strong>incongruent</strong> words condition be <b>d&#772;</b> and <b>s<sub>d</sub></b> respectively.
 <br>
 <br></p>
 <p><h3 style="text-align:left;">Defining hypothesis</h3>
 Next, we define the null and alternate hypothesis for this task as follows:
 <br>
 <br>
-<strong>Null Hypothesis (H<sub>0</sub>)</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &mu;<sub>cong</sub> &cong; &mu;<sub>incong</sub> 
+<strong>Null Hypothesis (H<sub>0</sub>)</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: d&#772; = 0 
 <br>
-<strong>Alternate Hypothesis (H<sub>1</sub>)</strong>&nbsp;: &mu;<sub>cong</sub> &ne; &mu;<sub>incong</sub>
+<strong>Alternate Hypothesis (H<sub>1</sub>)</strong>&nbsp;: d&#772; &ne; 0
 <br>
 <br></p>
 <p><h3 style="text-align:left;">Type of test</h3>
-We want to investigate the effect of the words condition on the average time taken to complete the task. From measuring the time taken to complete the task under both the words conditions we can see that it taken more time on average for the incongruent words conditions. Hence, we will be testing if this change is significant enough to draw an inference between the words condition and average time taken to complete the task. For this, we use a <strong>one-tailed test</strong> with an <strong>&alpha;-level</strong> of <strong>0.05</strong>.
+We want to investigate the effect of the words condition on the average time taken to complete the task. We will be testing if this change is significant enough to draw an inference between the words condition and average time taken to complete the task.
 <br>
-Hence, <strong>&alpha; = 0.05</strong></p>
+<br>
+From the task conditions and dataset given we know that:</p>
+<ul>
+<li>A person performs the same task twice once with the congruent and once with the incongruent words condition.</li>
+<li>We have 24 observations in total for each of the words conditions.</li>
+<li>We do not know the standard deviation of the population.
+<br>
+<br>
+Furthermore, we assume that the distribution is Gaussian.
+<br>
+<br>
+Hence, we perform a <strong>two-tailed dependent t-test</strong> with an <strong>&alpha;-level</strong> of <strong>0.05</strong>.
+<br>
+Hence, <strong>&alpha; = 0.05</strong></li>
+</ul>
 
 </div>
 </div>
@@ -15243,6 +15261,15 @@ Next, we store this data in a Pandas DataFrame.</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br>
 The <strong>mean</strong>, <strong>median</strong>, <strong>variance</strong> and <strong>standard deviation</strong> for the <strong>congruent words condition</strong> is given below:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since, a person</p>
 
 </div>
 </div>
@@ -15845,11 +15872,8 @@ Furthermore, the average times for the incongruent words condition is also highe
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Confidence level</strong>, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&alpha;&nbsp;&nbsp;&nbsp;&nbsp; = 0.05</strong> <br>
-<strong>Critical statistic value, z<sub>CR</sub> = 1.6449</strong>
-<br>
-<br>
-The z-value for the incongruent words condition is given by,</p>
+<p><br>
+Since, we are performing a dependent t-test we need to find the differences between the congruent and incongruent times. We can do the same using the following code.</p>
 
 </div>
 </div>
@@ -15859,21 +15883,162 @@ The z-value for the incongruent words condition is given by,</p>
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stroop_data_df</span><span class="p">[</span><span class="s2">&quot;difference&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stroop_data_df</span><span class="p">[</span><span class="s2">&quot;congruent&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">stroop_data_df</span><span class="p">[</span><span class="s2">&quot;incongruent&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">stroop_data_df</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>    congruent  incongruent  difference
+0      12.079       19.278      -7.199
+1      16.791       18.741      -1.950
+2       9.564       21.214     -11.650
+3       8.630       15.687      -7.057
+4      14.669       22.803      -8.134
+5      12.238       20.878      -8.640
+6      14.692       24.572      -9.880
+7       8.987       17.394      -8.407
+8       9.401       20.762     -11.361
+9      14.480       26.282     -11.802
+10     22.328       24.524      -2.196
+11     15.298       18.644      -3.346
+12     15.073       17.510      -2.437
+13     16.929       20.330      -3.401
+14     18.200       35.255     -17.055
+15     12.130       22.158     -10.028
+16     18.495       25.139      -6.644
+17     10.639       20.429      -9.790
+18     11.344       17.425      -6.081
+19     12.369       34.288     -21.919
+20     12.944       23.894     -10.950
+21     14.233       17.960      -3.727
+22     19.710       22.058      -2.348
+23     16.004       21.157      -5.153
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+The mean difference (d&#772;) is computed as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Mean difference =&quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">stroop_data_df</span><span class="p">[</span><span class="s2">&quot;difference&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean difference = -7.965
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br>
+The standard deviation of differences (s<sub>d</sub>) is computed as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Standard deviation of mean difference =&quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">stroop_data_df</span><span class="p">[</span><span class="s2">&quot;difference&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Standard deviation of mean difference = 4.865
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c">%%latex</span>
-
-<span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
-
-z <span class="nb">&amp;</span> = <span class="nb">{</span><span class="k">\mu</span><span class="nb">_{</span>incong<span class="nb">}</span> - <span class="k">\mu</span><span class="nb">_{</span>cong<span class="nb">}</span> <span class="k">\over</span> <span class="k">\sigma</span><span class="nb">_{</span>cong<span class="nb">}</span>/<span class="k">\sqrt</span> n<span class="nb">}</span> <span class="k">\\</span>
+<span class="k">\begin</span><span class="nb">{</span>aligned<span class="nb">}</span>
+We<span class="k">\ </span>have<span class="k">\ </span>already<span class="k">\ </span>computed, <span class="k">\\</span> 
+<span class="k">\overline</span> d <span class="nb">&amp;</span> = -7.965 <span class="k">\\</span> 
+s<span class="nb">_{</span>d<span class="nb">}</span> <span class="nb">&amp;</span> = 4.865 <span class="k">\\</span>
+n <span class="nb">&amp;</span> = 24 <span class="k">\\</span>
 <span class="k">\\</span>
-Substituting <span class="k">\ </span>the<span class="k">\ </span>values, <span class="k">\\</span>
-<span class="k">\implies</span> z <span class="nb">&amp;</span> = <span class="nb">{</span>22.016 - 14.051 <span class="k">\over</span> 3.559 /<span class="k">\sqrt</span>24<span class="nb">}</span> <span class="k">\\</span>
-<span class="k">\implies</span> z <span class="nb">&amp;</span> = 10.964 <span class="k">\\</span>
+Standard<span class="k">\ </span>deviation<span class="k">\ </span>of<span class="k">\ </span>mean<span class="k">\ </span>error,<span class="k">\ </span>SE(<span class="k">\overline</span> d) <span class="nb">&amp;</span> = <span class="nb">{</span>s<span class="nb">_{</span>d<span class="nb">}</span> <span class="k">\over</span> <span class="k">\sqrt</span> n<span class="nb">}</span> <span class="k">\\</span>
+<span class="k">\implies</span> SE(<span class="k">\overline</span> d) <span class="nb">&amp;</span> = <span class="nb">{</span>4.865 <span class="k">\over</span> <span class="k">\sqrt</span> 24<span class="nb">}</span> <span class="k">\\</span>
+<span class="k">\implies</span> SE(<span class="k">\overline</span> d) <span class="nb">&amp;</span> = 0.993 <span class="k">\\</span>
 <span class="k">\\</span>
-Critical<span class="k">\ </span>statistic<span class="k">\ </span>value,<span class="k">\ </span>
-z<span class="nb">_{</span>CR<span class="nb">}</span> <span class="nb">&amp;</span> = 1.6449 <span class="k">\\</span>
-<span class="k">\therefore\ </span>z <span class="nb">&amp;</span> &gt; z<span class="nb">_{</span>CR<span class="nb">}</span> <span class="k">\\</span>
-
-<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
+t-statistic<span class="k">\ </span>is<span class="k">\ </span>given<span class="k">\ </span>by,<span class="k">\ </span>T <span class="nb">&amp;</span> = <span class="nb">{</span><span class="k">\overline</span> d <span class="k">\over</span> SE(<span class="k">\overline</span> d)<span class="nb">}</span> <span class="k">\\</span>
+<span class="k">\implies</span> T <span class="nb">&amp;</span> = <span class="nb">{</span>-7.965 <span class="k">\over</span> 0.993<span class="nb">}</span> <span class="k">\\</span>
+<span class="k">\implies</span> T <span class="nb">&amp;</span> = -8.021 <span class="k">\\</span>
+<span class="k">\\</span>
+From<span class="k">\ </span>the<span class="k">\ </span>t-table,<span class="k">\ </span>(two-tailed)<span class="k">\ </span>p <span class="nb">&amp;</span> &lt; 0.0001 <span class="k">\\</span>
+<span class="k">\end</span><span class="nb">{</span>aligned<span class="nb">}</span>
 </pre></div>
 
 </div>
@@ -15892,20 +16057,22 @@ z<span class="nb">_{</span>CR<span class="nb">}</span> <span class="nb">&amp;</s
 
 
 <div class="output_latex output_subarea ">
-
-\begin{align}
-
-z & = {\mu_{incong} - \mu_{cong} \over \sigma_{cong}/\sqrt n} \\
+\begin{aligned}
+We\ have\ already\ computed, \\ 
+\overline d & = -7.965 \\ 
+s_{d} & = 4.865 \\
+n & = 24 \\
 \\
-Substituting \ the\ values, \\
-\implies z & = {22.016 - 14.051 \over 3.559 /\sqrt24} \\
-\implies z & = 10.964 \\
+Standard\ deviation\ of\ mean\ error,\ SE(\overline d) & = {s_{d} \over \sqrt n} \\
+\implies SE(\overline d) & = {4.865 \over \sqrt 24} \\
+\implies SE(\overline d) & = 0.993 \\
 \\
-Critical\ statistic\ value,\ 
-z_{CR} & = 1.6449 \\
-\therefore\ z & > z_{CR} \\
-
-\end{align}
+t-statistic\ is\ given\ by,\ T & = {\overline d \over SE(\overline d)} \\
+\implies T & = {-7.965 \over 0.993} \\
+\implies T & = -8.021 \\
+\\
+From\ the\ t-table,\ (two-tailed)\ p & < 0.0001 \\
+\end{aligned}
 </div>
 
 </div>
@@ -15918,7 +16085,21 @@ z_{CR} & = 1.6449 \\
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Hence, z lies on the critical region.
+<p><strong>Confidence level</strong>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&alpha;&nbsp;&nbsp;&nbsp;&nbsp;= 0.05</strong> <br>
+<strong>Degrees of freedom,&nbsp;&nbsp;&nbsp; n-1 = 23</strong> <br>
+<strong>Critical statistic value, t<sub>CR</sub> = &plusmn;2.069</strong> (For a two-tailed t-test)
+<br>
+<br>
+Clearly, T &lt; -t<sub>CR</sub></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hence, T lies on the critical region.
 <br>
 <br>
 <strong>Hence, we reject the null hypothesis (H<sub>0</sub>).</strong></p>
@@ -15944,8 +16125,8 @@ z_{CR} & = 1.6449 \\
 <p><h2><b><u>Conclusion</u></b></h2>
 <br></p>
 <ul>
-<li>Since, z &gt; z<sub>CR</sub>, we reject the null hypothesis (H<sub>0</sub>).</li>
-<li>Hence, we can conclude that, &mu;<sub>cong</sub> &ne; &mu;<sub>incong</sub>. <br>That is, there is a significant change in the average time taken to complete the task due the change in the words condition.</li>
+<li>Since, T &lt; -t<sub>CR</sub>, we reject the null hypothesis (H<sub>0</sub>).</li>
+<li>Hence, we can conclude that, d̄ ≠ 0. <br>That is, there is a significant change in the time taken to complete the task due the change in the words condition.</li>
 </ul>
 
 </div>
@@ -15977,6 +16158,7 @@ z_{CR} & = 1.6449 \\
 <li>Draw average line in matplotlib <a href="https://stackoverflow.com/questions/12043672/how-to-take-draw-an-average-line-for-a-scatter-a-plot-in-matplotlib/23014607">StackExchange</a> <br></li>
 <li>Changing tick frequency on X and Y axis in matplotlib <a href="https://stackoverflow.com/questions/12608788/changing-the-tick-frequency-on-x-or-y-axis-in-matplotlib">StackExchange</a> <br></li>
 <li>Plot bar graphs with same X coordinates side by side in matplotlib <a href="https://stackoverflow.com/questions/10369681/how-to-plot-bar-graphs-with-same-x-coordinates-side-by-side">StackExchange</a></li>
+<li>Overline in HTML <a href="http://www.personal.psu.edu/ejp10/blogs/gotunicode/2010/03/dealing-with-x-bar-x-and-p-hat.html">Get Unicode?</a></li>
 </ul>
 
 </div>

@@ -13,3 +13,5 @@ Draw average line in matplotlib (StackExchange) : https://stackoverflow.com/ques
 Changing tick frequency on X and Y axis in matplotlib (StackExchange) : https://stackoverflow.com/questions/12608788/changing-the-tick-frequency-on-x-or-y-axis-in-matplotlib
 
 Plot bar graphs with same X coordinates side by side in matplotlib (StackExchangee) : https://stackoverflow.com/questions/10369681/how-to-plot-bar-graphs-with-same-x-coordinates-side-by-side
+
+Overline in HTML [Get Unicode?](http://www.personal.psu.edu/ejp10/blogs/gotunicode/2010/03/dealing-with-x-bar-x-and-p-hat.html)
